@@ -1,23 +1,22 @@
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop-Tees</title>
-</head>
-
-<body>
-
-    <header>
-        <h2>Créer les Tees</h2>
-    </header>
+<?php 
+require_once("../view/partial/_header.php")
+?>
 
     <main>
 
-        <h2><?php echo $message; ?> </h2>
+    <!-- On vérifie si une commande est présente dans la session 
+     = si la key order existe dans la variable $_SESSION -->
+    <?php if (array_key_exists("order", $_SESSION)) { ?>
+        <!-- afficher le message  -->
+		<p class="message">Vous avez une commande en attente : 
+        <!-- affiche la quantité et le nom de produit-->
+        <?php echo $_SESSION["order"]["quantity"]; ?> : 
+        <?php echo $_SESSION["order"]["product"]; ?></p>
+	<?php } ?>
 
-        
+        <!-- <p class="message"><?php echo $message; ?> </p> -->
+
+        <h2>Création de commande</h2>
         <form method="post">
 
             <label for="">Quantité
