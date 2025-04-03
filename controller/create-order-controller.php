@@ -19,16 +19,24 @@ if (
     array_key_exists("product", $_POST)) 
 {
 
-      $order = createOrder($_POST ['product'], $_POST['quantity']);
-    
-      //si la commande est validée, l'enregistrer dans la session
-      if($order){
+//Le bloc try-catch = intercepter les erreurs et afficher un message d'erreur 
+//si une exception est lancée dans la fonction createOrder
+    try{
+        // appel à la fonction avec les données soumises via le formulaire
+        $order = createOrder($_POST ['product'], $_POST['quantity']);
+
+        //Si la commande est créee avec succès, l'enregistrer dans la session
         savedOrder($order);
-    }else{
-        //si la création de la commande échoue, afficher un message d'erreur
-        $message = "impossible de créer la commande";
-    }   
+        $message = "Votre commande a été créee avec succès";
+
+    }catch(Exception $e) {
+
+        //Si une exception est lancée (si la quantité est invalide)
+        //afficher le message d'erreur
+        $message=$e->getMessage();
+    } 
 };
+
 // on appelle la fct findOrderByUser pour récupérer la commande qui a été sauvegardée dans la session
 $orderByUser = findOrderByUser();
 

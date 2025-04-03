@@ -1,14 +1,17 @@
 <?php
+
+use Vtiful\Kernel\Format;
 require_once("../view/partial/_header.php")
 ?>
 
 <main>
 
-<p><?php echo $message; ?></p>
+<p class="message"><?php echo $message; ?></p>
 
-<?php if ($orderByUser) {?>
-    <p class="message">Vous avez une commande en attente : <?php echo $orderByUser['product']; ?> <?php echo $orderByUser['quantity']; ?>
-<?php } ?>
+		<?php if ($orderByUser) {?>
+			<p>Vous avez une commande en attente : <?php echo $orderByUser['quantity']; ?> x <?php echo $orderByUser['product']; ?>
+			<p>Créée le <?php echo $orderByUser['createdAt']->format('y-m-d'); ?></p>
+		<?php } ?>
 
     <h2>Création de commande</h2>
     <form method="post">
