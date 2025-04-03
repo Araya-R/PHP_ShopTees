@@ -11,15 +11,24 @@ require_once("../model/order-repository.php");
 //Démarre la session
 session_start();
 
+$message="";
 //on vérifie si les clés quantity et product existent dans le tableau $_post (récupérer via le formulaire)
 //si elles existent, on appelle la fct createOrder et savedOrder pour enregistrer dans la session
 if (
     array_key_exists("quantity", $_POST) &&
     array_key_exists("product", $_POST)) 
 {
+
       $order = createOrder($_POST ['product'], $_POST['quantity']);
-    savedOrder($order);
-}
+    
+      //si la commande est validée, l'enregistrer dans la session
+      if($order){
+        savedOrder($order);
+    }else{
+        //si la création de la commande échoue, afficher un message d'erreur
+        $message = "impossible de créer la commande";
+    }   
+};
 // on appelle la fct findOrderByUser pour récupérer la commande qui a été sauvegardée dans la session
 $orderByUser = findOrderByUser();
 

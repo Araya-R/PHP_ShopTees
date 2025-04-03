@@ -4,18 +4,11 @@ require_once("../view/partial/_header.php")
 
 <main>
 
-    <!-- On vérifie si une commande est présente dans la session 
-     = si la key order existe dans la variable $_SESSION -->
-    <?php if (array_key_exists("order", $_SESSION)) { ?>
-        <!-- afficher le message  -->
-        <p class="message">Vous avez une commande en attente :
-            <!-- affiche la quantité et le nom de produit-->
-            <?php echo $_SESSION["order"]["quantity"]; ?> :
-            <?php echo $_SESSION["order"]["product"]; ?>
-        </p>
-    <?php } ?>
+<p><?php echo $message; ?></p>
 
-    <!-- <p class="message"><?php echo $message; ?> </p> -->
+<?php if ($orderByUser) {?>
+    <p class="message">Vous avez une commande en attente : <?php echo $orderByUser['product']; ?> <?php echo $orderByUser['quantity']; ?>
+<?php } ?>
 
     <h2>Création de commande</h2>
     <form method="post">
