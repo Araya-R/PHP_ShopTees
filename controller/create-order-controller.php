@@ -1,5 +1,6 @@
 <?php
-
+// on fait appel à la page repository pour pouvoir récuperer les données (liste des produits)
+require_once("../model/product-repository.php");
 
 // démarrer une session ou reprendre une session existante.
 // permet de stocker des infos spécifiques à un utilisateur sur le serveur
@@ -12,12 +13,12 @@ if (
     array_key_exists("quantity", $_POST) &&
     array_key_exists("product", $_POST)) 
 {
-    // on crée une variable pour stocker/récupérer les données (product+quantity) que l'utilisateur a entrées
+    // on crée une variable pour récupérer les données (product+quantity) que l'utilisateur a entrées
    $order = [
     "product"=> $_POST["product"],
     "quantity"=> $_POST["quantity"],
    ];
-     
+    //on stocke les données donc dans la variable $_SESSION
    $_SESSION["order"]= $order;
 }
 
