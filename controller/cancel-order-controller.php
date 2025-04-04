@@ -10,8 +10,8 @@ require_once("../model/order-repository.php");
 //on récupère donc ces données et les stocke dans $orderByUser
 $orderByUser = findOrderByUser();
 
-//On vérifie si la requête est bien une methode POST (=càd l'utilisateur a cliqué sur payer)
-// Si oui, le status de la commande passe de "CART" à "PAID"
+//On vérifie si la requête est bien une methode POST (=càd l'utilisateur a cliqué sur annuler)
+// Si oui, le status de la commande passe de "CART" à "CANCELLED" si la commande n'est pas déjà payée
 //Ensuite la fonction savedOrder est appelée pour enregistrer la commande dans la base de données
 
 $message="";
