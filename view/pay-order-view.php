@@ -12,7 +12,10 @@ require_once("../view/partial/_header.php")
 			<p class="message">Créée le <?php echo $orderByUser['createdAt']->format('y-m-d'); ?></p>
             <p class="message">Votre commande est en status : <?php echo $orderByUser['status']; ?> </p>
 
-            <button>Payez</button>
+            <form method="post">
+            <button type="submit">Payez</button>
+            </form>
+
 		<?php } else {?>
             <p>Vous n'avez pas de commande à payer</p>
             <?php }?>
