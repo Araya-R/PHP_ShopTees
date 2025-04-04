@@ -5,7 +5,10 @@ require_once("../view/partial/_header.php")
 ?>
 
 <main>
-    <h2>Payez votre commande</h2>
+    <h2>Annuler votre commande</h2>
+
+
+        <p><?php echo $message; ?></p>
 
 		<?php if ($orderByUser) {?>
 			<p class="message">Vous avez une commande : <?php echo $orderByUser['quantity']; ?> x <?php echo $orderByUser['product']; ?>
@@ -13,11 +16,11 @@ require_once("../view/partial/_header.php")
             <p class="message">Votre commande est en status : <?php echo $orderByUser['status']; ?> </p>
 
             <form method="post">
-            <button type="submit">Payer</button>
+            <button type="submit">Annuler la commande</button>
             </form>
 
 		<?php } else {?>
-            <p>Vous n'avez pas de commande à payer</p>
+            <p>Vous n'avez pas de commande à annuler</p>
             <?php }?>
 
     </form>

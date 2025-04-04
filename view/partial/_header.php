@@ -14,8 +14,8 @@
         <nav>
             <ul>MENU
                 <li><a href="http://localhost:8888/Projet_ShopTees/controller/create-order-controller.php">Créer une commande</a></li>
-                <li><a href="http://localhost:8888/Projet_ShopTees/controller/pay-order-controller.php">Panier</a></li>
-                <li><a href="">lien3</a></li>
+                <li><a href="http://localhost:8888/Projet_ShopTees/controller/pay-order-controller.php">Payer la commande</a></li>
+                <li><a href="http://localhost:8888/Projet_ShopTees/controller/cancel-order-controller.php">Annuler la commande</a></li>
                 <li><a href="">lien4</a></li>
             </ul>
         </nav>

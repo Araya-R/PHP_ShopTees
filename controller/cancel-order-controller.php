@@ -14,10 +14,18 @@ $orderByUser = findOrderByUser();
 // Si oui, le status de la commande passe de "CART" à "PAID"
 //Ensuite la fonction savedOrder est appelée pour enregistrer la commande dans la base de données
 
-if ($_SERVER['REQUEST_METHOD'] === "POST"){
-    $orderByUser['status'] = "PAID";
-    savedOrder($orderByUser);
-};
+$message="";
 
-require_once("../view/pay-order-view.php");
+if ($_SERVER['REQUEST_METHOD'] === "POST"){
+
+    if ($orderByUser['status'] === "CART"){
+        $orderByUser['status'] = "CANCELLED";
+        savedOrder($orderByUser);
+    }
+  else{
+    $message="Vous ne pouvez pas annuler la commande déjà payée";
+  }
+}
+
+require_once("../view/cancel-order-view.php");
 
