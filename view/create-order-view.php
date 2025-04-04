@@ -9,8 +9,9 @@ require_once("../view/partial/_header.php")
 <p class="message"><?php echo $message; ?></p>
 
 		<?php if ($orderByUser) {?>
-			<p>Vous avez une commande en attente : <?php echo $orderByUser['quantity']; ?> x <?php echo $orderByUser['product']; ?>
-			<p>Créée le <?php echo $orderByUser['createdAt']->format('y-m-d'); ?></p>
+			<p class="message">Vous avez une commande en attente : <?php echo $orderByUser['quantity']; ?> x <?php echo $orderByUser['product']; ?>
+			<p class="message">Créée le <?php echo $orderByUser['createdAt']->format('y-m-d'); ?></p>
+            <p class="message">Votre commande est en status : <?php echo $orderByUser['status']; ?> </p>
 		<?php } ?>
 
     <h2>Création de commande</h2>

@@ -12,7 +12,7 @@ function findOrderByUser(){
 function createOrder($product, $quantity){
     
 // LA GESTION DES EXCEPTIONS 
-    // Véfirier que la quantité est positive
+    // Vérifier que la quantité est positive
     if($quantity < 0){
        throw new Exception("Interdiction de mettre une quantité inférieure à 0");
     
@@ -25,7 +25,8 @@ function createOrder($product, $quantity){
         $order=[
             "product" => $product,
             "quantity" => $quantity,
-            "createdAt" => new DateTime()
+            "createdAt" => new DateTime(),
+            "status" => "CART"
         ];
         return $order; 
         //retouner l'ordre créé 
