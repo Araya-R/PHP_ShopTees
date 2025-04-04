@@ -21,6 +21,7 @@ function createOrder($product, $quantity){
         throw new Exception("Interdicton de mettre la quantité supérieur à 4");
     
     //Création de la commande avec la date actuelle 
+    // status "CART" = la commande est dans le panier et n'a pas encore été passée ou traitée
     }else{
         $order=[
             "product" => $product,
