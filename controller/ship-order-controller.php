@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST"){
         savedOrder($orderByUser);
     }
   else{
-    $message="Vous n'avez pas de commande à expédier";
+    $message="Vous n'avez pas de commande à expédier. Veuillez vérifier si la commande a bien été payée";
   }
 }
 
