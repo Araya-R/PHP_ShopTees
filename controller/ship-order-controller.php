@@ -10,7 +10,7 @@ require_once("../model/order-repository.php");
 //on récupère donc ces données et les stocke dans $orderByUser
 $orderByUser = findOrderByUser();
 
-//On vérifie si la requête est bien une methode POST (=càd l'utilisateur a cliqué sur annuler)
+//On vérifie si la requête est bien une methode POST (=càd l'utilisateur a cliqué sur Expédier la commande)
 // Si oui, le status de la commande passe de "PAID" à "SHIPPED" si la commande n'est pas déjà payée
 //Ensuite la fonction savedOrder est appelée pour enregistrer la commande dans la base de données
 
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST"){
         $message="Votre commande est déjà en route!";
     }
     else{
-      $message="Vous n'avez pas de commande à expédier. Veuillez vérifier si la commande a bien été payée";
+      $message="Vous n'avez pas de commande à expédier. Veuillez vérifier si la commande a bien été payée.";
   }
 }
 
