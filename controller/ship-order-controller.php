@@ -22,8 +22,13 @@ if ($_SERVER['REQUEST_METHOD'] === "POST"){
         $orderByUser['status'] = "SHIPPED";
         savedOrder($orderByUser);
     }
-  else{
-    $message="Vous n'avez pas de commande à expédier. Veuillez vérifier si la commande a bien été payée";
+    else if ($orderByUser['status'] === "SHIPPED"){
+        $orderByUser['status'] = "SHIPPED";
+        savedOrder($orderByUser);
+        $message="Votre commande est déjà en route!";
+    }
+    else{
+      $message="Vous n'avez pas de commande à expédier. Veuillez vérifier si la commande a bien été payée";
   }
 }
 

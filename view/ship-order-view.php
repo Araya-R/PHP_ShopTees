@@ -20,7 +20,7 @@ require_once("../view/partial/_header.php")
             </form>
 
 		<?php } else {?>
-            <p>Vous n'avez pas de commande à expédier</p>
+            <p>Vous n'avez pas de commande à expédier. Veuillez valider et payer votre commande.</p>
             <?php }?>
 
     </form>
